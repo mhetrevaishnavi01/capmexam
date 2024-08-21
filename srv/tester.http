@@ -1,0 +1,122 @@
+###CREATE  employee data - POST
+POST http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+Content-Type: application/json
+ 
+{
+    "salaryAmount":500,
+    "Currency_code":"USD"
+}
+
+###PATCH employee data - PATCH
+PATCH http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/0780af38-0d7a-448c-9388-d82acc5f772d
+Content-Type: application/json
+ 
+{
+   //"nameFirst":"vaish",
+   //"loginName":"m"
+   "nameLast":"mhetre" 
+}
+
+###DELETE  employee data - DELETE
+
+DELETE http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/709b706e-2645-4a84-ad8c-8bdb4a5fb6c1
+
+###
+GET http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+
+
+###CREATE  employee data - POST
+POST http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+Content-Type: application/json
+ 
+{
+    "nameFirst":"soumya",
+     "salaryAmount":700,
+    "Currency_code":"USD"
+
+}
+
+
+
+
+//4.triigering operations
+
+
+###Get the service document for Employeeservice
+GET http://localhost:4004/odata/v4/EmployeeService
+
+###Get the Service metadata document
+GET http://localhost:4004/odata/v4/EmployeeService/$metadata
+
+###Get all the Employees data
+Get http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+
+###Get all the Employees whose name starts with ‘S’
+Get http://localhost:4004/odata/v4/EmployeeService/EmployeeSet?$filter=contains(nameFirst,'S')
+
+###Get the top 2 employees, use orderby salaryAmount
+Get http://localhost:4004/odata/v4/EmployeeService/EmployeeSet?$top=2&$orderby=salaryAmount
+
+###CREATE an employee with salary <50000 & currency code USD.
+POST  http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+Content-Type: application/json
+ 
+{
+    "salaryAmount":10000,
+    "Currency_code":"USD"
+}
+
+###CREATE an employee with salary >50000 & currency code USD.
+POST  http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+Content-Type: application/json
+ 
+{
+    "salaryAmount":60000,
+    "Currency_code":"USD"
+}
+
+###CREATE an employee with salary <50000 & currency code EUR.
+POST  http://localhost:4004/odata/v4/EmployeeService/EmployeeSet
+Content-Type: application/json
+ 
+{
+    "salaryAmount":40000,
+    "Currency_code":"EUR"
+}
+
+###UPDATE an employee by keeping the nameFirst and loginName intact.
+PATCH http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19967FB
+Content-Type: application/json
+ 
+{
+    "nameMiddle":"bilas",
+    "nameLast":"kaur",
+    "nameInitials":"l",
+    "sex":"F",
+   "Language":"H",
+    "phoneNumber":"+917867453423",
+    "Email":"hermann.hecker@itelo.info",
+    //"Currency":"EUR",
+    "salaryAmount":"90000",
+    "accountNumber":"223456789",
+    "bankId":"1342678",
+    "bankName":"PNB"
+
+}
+
+###UPDATE an employee by changing the loginName.
+PATCH http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19A87FB
+Content-Type: application/json
+ 
+{
+   "loginName":"FRANK"
+
+}
+
+###DELETE any employee
+DELETE http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19B87FB
+
+###DELETE employee whose name starts with S
+
+DELETE http://localhost:4004/odata/v4/EmployeeService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19B67FB
+
