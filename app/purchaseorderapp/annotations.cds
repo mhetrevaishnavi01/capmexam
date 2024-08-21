@@ -2,8 +2,10 @@ using CatalogService as service from '../../srv/CatalogService';
 annotate service.PO with @(
     UI.SelectionFields:[
      PO_ID,
+     CURRENCY_code,
      GROSS_AMOUNT,
      OVERALL_STATUS,
+
      ],
     UI.LineItem:[
         {
